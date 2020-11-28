@@ -5,13 +5,13 @@ Link https://r-a-exe.github.io/password-generator/
 
 ## High-Level Description
 
-A password generator that provides a randomly generated password given certain criteria.
+Provide a randomly generated password given certain criteria.
 
 ![Screenshot](assets/screenshot.png)
 
 ## Criteria
 
-The password takes in 5 criteria from the user through a prompt and 4 alerts:
+The generator takes in 5 criteria from the user through a prompt and 4 alerts:
 
     1- The size of the password: the user must enter a number between 8 and 128; any other value will cause the prompt to loop;
     2- Lowercase letters: using the alert buttons, the user will indicate if lowercase letters are to be included in the password;
@@ -41,7 +41,7 @@ The randomizer, consisting of a simple randm number generator between 0 (inclusi
 
 ## Validation
 
-In order to validate that the password contains at least one character from the specified types, a validation methos is called, and passed the string, and each of the boolean values collected during the 
+In order to validate that the password contains at least one character from the specified types, a validation function is called, and passed the string, and each of the boolean values collected during the 
 Criteria Selection part.
 
 The validation function loops through each character of the password and conducts the following tests:
@@ -50,6 +50,6 @@ The validation function loops through each character of the password and conduct
     - If yes, this test is ignore because either the user did not request lowercase letters, or this criteria has already been tested and succeded;
     - If not, the lowercase array is checked to see if it contains the current character:
         - If yes, the boolean value of lowercase is set to true;
-        - If not, we move on to conduct the same test on the uppercase boolean value.
+        - If not, we move on to conduct the same test on the uppercase, number and special characters.
 
 The last step of this loop is to check if all 4 criteria are true, if so, the function returns true and the password is displayed. If the the loop ends and not all the criteria are met, the Password Generation function restarts, and generates an new password, which will also have to be validated.
