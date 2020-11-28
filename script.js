@@ -87,7 +87,10 @@ function validate (pass, lower, upper, num, spec){
     if(!spec && specialchar.includes(pass.charAt(i))){
       spec = true;
     }
+    if(lower && upper && num && spec){
+      return true;
+    }
   }
   console.log(lower + ", " + upper + ", " + num + ", " + spec)
-  return(lower && upper && num && spec);
+  return false;
 }
